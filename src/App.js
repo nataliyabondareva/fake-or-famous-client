@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
 // import Home from './components/Home'
 import LoginFormContainer from './components/LoginFormContainer'
-import SignupForm from './components/SignupForm';
+import SignupFormContainer from './components/SignupFormContainer';
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
         <div>
           <Route path="/logins" exact component={LoginFormContainer} />
           {/* <Route path="/" exact component={Home} /> */}
-          <Route path="/signup" exact component={SignupForm} />
+          <Route path="/signup" exact component={SignupFormContainer} />
         </div>
       </Provider>
     );

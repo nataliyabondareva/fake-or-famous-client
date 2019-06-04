@@ -5,15 +5,15 @@ export default function SignupForm(props) {
     <form onSubmit={props.onSubmit}>
       <label>
         Email:
-      <input type="text" name="email" value={props.values.email} onChange={props.onChange} />
+      <input type="text" name="email" value={props.values.email} onChange={props.onChange}></input>
       </label>
       <label>
         Password:
-      <input type="password" name="password" value={props.values.password} onChange={props.onChange} />
+      <input type="password" name="password" value={props.values.password} onChange={props.onChange}></input>
       </label>
       <label>
         Confirm password:
-      <input type="password" name="password" value={props.values.password} onChange={props.onChange} />
+      <input type="password" name="password" value={props.values.password} onChange={props.onChange}></input>
       </label>
       <button type="submit">Login</button>
     </form>)
