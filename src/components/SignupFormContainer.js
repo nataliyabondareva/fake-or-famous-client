@@ -3,7 +3,7 @@ import SignupForm from './SignupForm'
 import { connect } from 'react-redux'
 import { signup } from '../actions/users'
 
-export default class SignupFormContainer extends PureComponent {
+class SignupFormContainer extends PureComponent {
 
 	state = { email: '', password: '' }
 
@@ -18,7 +18,8 @@ export default class SignupFormContainer extends PureComponent {
 		this.props.signup(this.state.email, this.state.password)
 	}
 
-	reder() {
+	render() {
+		console.log('WHAT?', this.state)
 		return (
 			<SignupForm
 				onSubmit={this.onSubmit}
