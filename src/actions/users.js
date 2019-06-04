@@ -32,6 +32,7 @@ export const login = (email, password) => dispatch => {
     .catch(err => { console.log(err) })
 }
 
+export const ADD_USER = 'ADD_USER'
 export const UPDATE_USERS = 'UPDATE_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
 
@@ -51,19 +52,18 @@ export const getUsers = () => (dispatch, getState) => {
     .catch(err => console.log(err))
 }
 
+export const USER_LOGOUT = 'USER_LOGOUT'
+export const logout = () => ({
+  type: USER_LOGOUT
+})
 
 
-
-// export const ADD_USER = 'ADD_USER'
 
 
 
 // export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
 
-// export const USER_LOGOUT = 'USER_LOGOUT'
-// export const logout = () => ({
-//   type: USER_LOGOUT
-// })
+
 
 
 
