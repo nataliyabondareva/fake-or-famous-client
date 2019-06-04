@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import store from './store'
 import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
-// import Home from './components/Home'
-import LoginFormContainer from './components/LoginFormContainer'
+// import LoginFormContainer from './components/LoginFormContainer'
 import SignupFormContainer from './components/SignupFormContainer';
 
 class App extends Component {
@@ -11,8 +10,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <Route path="/logins" exact component={LoginFormContainer} />
-          {/* <Route path="/" exact component={Home} /> */}
+          {/* <Route path="/logins" exact component={LoginFormContainer} /> */}
           <Route path="/signup" exact component={SignupFormContainer} />
         </div>
       </Provider>
