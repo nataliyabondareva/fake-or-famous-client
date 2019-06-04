@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
+          <Route path="/" exact component={SignupFormContainer} />
           <Route path="/logins" exact component={LoginFormContainer} />
           <Route path="/signup" exact component={SignupFormContainer} />
         </div>
