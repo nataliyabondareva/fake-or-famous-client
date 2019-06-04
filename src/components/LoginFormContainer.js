@@ -1,7 +1,7 @@
 import React from 'react'
 import LoginForm from './LoginForm'
 import {connect} from 'react-redux'
-// import {login} from '../actions/auth'
+import {login} from '../actions/users'
 
 class LoginFormContainer extends React.Component {
   state = { email: '', password: ''}
@@ -22,4 +22,4 @@ class LoginFormContainer extends React.Component {
   }
 }
 
-export default (LoginFormContainer)
+export default connect(null, {login})(LoginFormContainer)
