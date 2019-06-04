@@ -1,5 +1,7 @@
 import * as request from 'superagent'
-const baseUrl = 'http://localhost:4000'
+import { baseUrl } from '../constants'
+import { isExpired } from '../jwt'
+
 
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
 
@@ -40,11 +42,12 @@ const updateUsers = (users) => ({
   type: UPDATE_USERS,
   payload: users
 })
+
 export const getUsers = () => (dispatch, getState) => {
   const state = getState()
   if (!state.currentUser) return null
   const jwt = state.currentUser.jwt
-  // if (isExpired(jwt)) return dispatch(logout())
+  if (isExpired(jwt)) return dispatch(logout())
   request
     .get(`${baseUrl}/users`)
     .set('Authorization', `Bearer ${jwt}`)
