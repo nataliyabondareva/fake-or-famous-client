@@ -11,10 +11,6 @@ export default function SignupForm(props) {
         Password:
       <input type="password" name="password" value={props.values.password} onChange={props.onChange}></input>
       </label>
-      <label>
-        Confirm password:
-      <input type="password" name="password" value={props.values.password} onChange={props.onChange}></input>
-      </label>
-      <button type="submit">Login</button>
+      <button type="submit">Sign Up</button>
     </form>)
 }

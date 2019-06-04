@@ -4,7 +4,9 @@ export default function (state = null, action) {
   switch (action.type) {
     case USER_SIGNUP_SUCCESS:
       console.log('action', action)
-      return [...state, action]
+      return {
+        success: true
+      }
     default:
       return state
   }
