@@ -9,7 +9,7 @@ class LoginFormContainer extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.props.login(this.state.email, this.state.password)
+    this.props.loginAction(this.state.email, this.state.password)
   }
 
   onChange = (event) => {
@@ -19,11 +19,19 @@ class LoginFormContainer extends React.Component {
   }
 
   render() {
-    if (this.props.currentUser) return (
-      <Redirect to="/" />
+    console.log('this.props', this.props)
+    if (this.props.logins && this.props.logins.success === true) return (
+      <Redirect to="/games" />
     )
     return <LoginForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
   }
 }
 
-export default connect(null, { login })(LoginFormContainer)
+const mapStateToProps = (state) => {
+  return {
+    logins: state.login
+  };
+};
+
+
+export default connect(mapStateToProps, { loginAction: login })(LoginFormContainer)
