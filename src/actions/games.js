@@ -1,3 +1,15 @@
+/*
+current setup 
+Can load game from DB that we create
+Setup redux store for ADD game having issue implement in container
+
+need to implement GAME SUCCESS actions like in the login 
+need the add game to create a sort of lobby which won't start a 
+game until <=2 have joined
+
+NEED to implement undate game actions which
+will PATCH game for turns / and will for winners
+*/
 import request from 'superagent'
 const baseUrl = 'http://localhost:4000'
 
@@ -36,3 +48,4 @@ export const createGame = () => (dispatch, getState) => {
     .then(result => dispatch(addGame(result.body)))
     .catch(err => console.error(err))
 }
+
