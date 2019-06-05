@@ -1,15 +1,18 @@
 import React from 'react'
-import { loadGames } from '../actions/games'
+import { loadGames, createGame } from '../actions/games'
+import { getUsers } from '../actions/users'
 import { connect } from 'react-redux'
 import GamesList from './GamesList'
 
 class GamesListContainer extends React.Component {
   componentDidMount() {
     this.props.loadGames()
+    this.props.getUsers()
   }
 
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <GamesList games={this.props.games} />
@@ -18,7 +21,8 @@ class GamesListContainer extends React.Component {
   }
 }
 const mapStateToProps = state => ({
-  games: state.games
+  games: state.games,
+  users: state.users
 })
 
-export default connect(mapStateToProps, { loadGames })(GamesListContainer)
+export default connect(mapStateToProps, { loadGames, getUsers, createGame })(GamesListContainer)
