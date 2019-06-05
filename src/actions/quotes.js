@@ -1,32 +1,31 @@
 import request from 'superagent'
+const baseUrl = 'http://localhost:4000'
 
 export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS"
 
-const baseUrl = 'http://localhost:4000'
 
 
-export const QUOTES_FETCHED = 'QUOTES_FETCHED'
 
-const baseUrl = 'http://localhost:4000'
+// const baseUrl = 'http://localhost:4000'
 
-const gamesFetched = games => ({
-  type: GAMES_FETCHED,
-  games
-})
+// const gamesFetched = games => ({
+//   type: GAMES_FETCHED,
+//   games
+// })
 
-export const loadGames = () => (dispatch, getState) => {
-  if (getState().games) return
-  request(`${baseUrl}/games`)
-    .then(response => {
-      dispatch(gamesFetched(response.body))
-    })
-    .catch(console.error)
-}
+// export const loadGames = () => (dispatch, getState) => {
+//   if (getState().games) return
+//   request(`${baseUrl}/games`)
+//     .then(response => {
+//       dispatch(gamesFetched(response.body))
+//     })
+//     .catch(console.error)
+// }
 
-const makeUpQuoteSuccess = (event) => ({
-  type: MAKE_UP_QUOTE_SUCCESS,
-  event
-})
+// const makeUpQuoteSuccess = (event) => ({
+//   type: MAKE_UP_QUOTE_SUCCESS,
+//   event
+// })
 
 export const makeUpQuote = (res) => dispatch => {
   request
@@ -39,7 +38,6 @@ export const makeUpQuote = (res) => dispatch => {
     .catch(console.error)
 }
 
-export 
 
 // export const makeUpQuote = (res, req) => dispatch => {
 //   console.log('res', res, 'req', req)
