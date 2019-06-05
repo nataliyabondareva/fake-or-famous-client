@@ -2,15 +2,12 @@ import request from 'superagent'
 
 export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS"
 
-const baseUrl = 'http://localhost:4000'
-
-
 export const QUOTES_FETCHED = 'QUOTES_FETCHED'
 
 const baseUrl = 'http://localhost:4000'
 
-const gamesFetched = games => ({
-  type: GAMES_FETCHED,
+const quotesFetched = games => ({
+  type: QUOTES_FETCHED,
   games
 })
 
@@ -18,7 +15,7 @@ export const loadGames = () => (dispatch, getState) => {
   if (getState().games) return
   request(`${baseUrl}/games`)
     .then(response => {
-      dispatch(gamesFetched(response.body))
+      dispatch(quotesFetched(response.body))
     })
     .catch(console.error)
 }
@@ -38,8 +35,6 @@ export const makeUpQuote = (res) => dispatch => {
     .then(console.log('yay!'))
     .catch(console.error)
 }
-
-export 
 
 // export const makeUpQuote = (res, req) => dispatch => {
 //   console.log('res', res, 'req', req)
