@@ -9,10 +9,8 @@ const gamesFetched = games => ({
   games
 })
 
-export const loadEvents = () => (dispatch, getState) => {
-  if (getState().events) return
-
-  // a GET /events request
+export const loadGames = () => (dispatch, getState) => {
+  if (getState().games) return
   request(`${baseUrl}/games`)
     .then(response => {
       dispatch(gamesFetched(response.body))
