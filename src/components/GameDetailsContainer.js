@@ -5,11 +5,11 @@ import { loadQuotes } from '../actions/quotes'
 
 class GameDetailsContainer extends React.Component {
   componentDidMount() {
-    this.props.loadQuotes(Number(this.props.match.params.id))
+    this.props.loadQuotesAction(Number(this.props.match.params.id))
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return <GameDetails quote={this.props.quotes} />
   }
 }
@@ -18,4 +18,4 @@ const mapStateToProps = state => ({
   quote: state.quote
 })
 
-export default connect(mapStateToProps, { loadQuotes })(GameDetailsContainer) 
+export default connect(mapStateToProps, { loadQuotesAction: loadQuotes })(GameDetailsContainer) 
