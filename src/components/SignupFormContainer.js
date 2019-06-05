@@ -36,7 +36,6 @@ class SignupFormContainer extends PureComponent {
 
 
 const mapStateToProps = (state) => {
-	console.log(state)
 	return {
 		signup: state.signup
 	};
