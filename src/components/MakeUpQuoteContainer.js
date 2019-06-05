@@ -3,8 +3,9 @@ import {connect} from 'react-redux'
 import {makeUpQuote} from '../actions/quotes'
 import MakeUpQuoteForm from './MakeUpQuoteForm'
 
-class MakeUpQuoteContainer extends React.PureComponent {
+class MakeUpQuoteContainer extends React.Component {
   state = {
+    content: ''
   }
 
   onChange = (event) => {
@@ -14,6 +15,7 @@ class MakeUpQuoteContainer extends React.PureComponent {
   }
 
   onSubmit = (event) => {
+    console.log('event', event.value)
     event.preventDefault()
     this.setState({
     content: '',
@@ -25,11 +27,18 @@ class MakeUpQuoteContainer extends React.PureComponent {
     this.props.makeUpQuote(this.state)
   }
   render() {
-    return(<MakeUpQuoteForm
+    return(
+    <MakeUpQuoteForm
       onSubmit={this.onSubmit}
       onChange={this.onChange}
       values={this.state}
       />)
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    content: state.content
   }
 }
 

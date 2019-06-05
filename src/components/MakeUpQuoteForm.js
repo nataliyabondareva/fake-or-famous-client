@@ -5,7 +5,7 @@ export default function MakeUpQuoteForm(props) {
   <form onSubmit={props.onSubmit}>
     <label>
       Quote:
-      <input type='text' name='quote' onChange={props.onChange} value={props.values.content}/>
+      <input type='text' name='content' value={props.values.content} onChange={props.onChange}/>
     </label>
     <button type='submit'>FAKE IT </button>
 
