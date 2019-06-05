@@ -7,19 +7,21 @@ import GamesList from './GamesList'
 class GamesListContainer extends React.Component {
   componentDidMount() {
     this.props.loadGames()
-    this.props.getUsers()
+    // this.props.getUsers()
   }
 
 
   render() {
+
     console.log(this.props)
     return (
       <div>
         <GamesList games={this.props.games} />
-      </div>
+      </div >
     )
   }
 }
+
 const mapStateToProps = state => ({
   games: state.games,
   users: state.users
