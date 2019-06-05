@@ -1,11 +1,11 @@
-import { MAKE_UP_QUOTE_SUCCESS } from '../actions/quotes'
+import { QUOTES_FETCHED } from '../actions/quotes'
 
 export default function (state = null, action) {
-  switch(action.type) {
-    case MAKE_UP_QUOTE_SUCCESS:
+  switch (action.type) {
+    case QUOTES_FETCHED:
       return [action.event, ...state]
-    
-  default:
-    return state
+
+    default:
+      return state
   }
 }

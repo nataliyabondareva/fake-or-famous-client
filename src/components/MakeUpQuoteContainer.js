@@ -1,7 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {makeUpQuote} from '../actions/quotes'
-import MakeUpQuoteForm from './MakeUpQuoteForm'
+import { connect } from 'react-redux'
+import { loadquotes } from '../actions/quotes'
+import MakeUpQuoteForm, { QuotesList } from './MakeUpQuoteForm'
 
 class MakeUpQuoteContainer extends React.Component {
   state = {
@@ -18,21 +18,25 @@ class MakeUpQuoteContainer extends React.Component {
     console.log('event', event.value)
     event.preventDefault()
     this.setState({
-    content: '',
-    authorId: '',
-    userId: '',
-    real: false,
-    gameId: ''
+      content: '',
+      authorId: '',
+      userId: '',
+      real: false,
+      gameId: ''
     })
     this.props.makeUpQuote(this.state)
   }
   render() {
-    return(
-    <MakeUpQuoteForm
-      onSubmit={this.onSubmit}
-      onChange={this.onChange}
-      values={this.state}
-      />)
+    return (
+      <div>
+        <MakeUpQuoteForm
+          onSubmit={this.onSubmit}
+          onChange={this.onChange}
+          values={this.state}
+        />
+        <QuotesList quote={} gameId={8} />
+      </div>
+    )
   }
 }
 
@@ -42,4 +46,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(null, {makeUpQuote})(MakeUpQuoteContainer)
+export default connect(mapStateToProps, { loadquotes })(MakeUpQuoteContainer)

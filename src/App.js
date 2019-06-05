@@ -16,7 +16,7 @@ class App extends Component {
           <Route path="/logins" exact component={LoginFormContainer} />
           <Route path="/signup" exact component={SignupFormContainer} />
           <Route path="/games" exact component={GamesListContainer} />
-          <Route path="/quotes" exact component={MakeUpQuoteContainer} />
+          <Route path="/games/:id/quotes" exact component={MakeUpQuoteContainer} />
         </div>
       </Provider>
     );
