@@ -15,17 +15,18 @@ class MakeUpQuoteContainer extends React.Component {
   }
 
   onSubmit = (event) => {
-    console.log('event', event.value)
     event.preventDefault()
     this.setState({
-    content: '',
-    authorId: '',
-    userId: '',
-    real: false,
-    gameId: ''
+    // content: '',
+    // authorId: '',
+    // userId: '',
+    // real: '',
+    // gameId: ''
     })
     this.props.makeUpQuote(this.state)
+    console.log('state is', this.state)
   }
+
   render() {
     return(
     <MakeUpQuoteForm
@@ -36,10 +37,10 @@ class MakeUpQuoteContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     content: state.content
   }
 }
 
-export default connect(null, {makeUpQuote})(MakeUpQuoteContainer)
+export default connect(mapStateToProps, {makeUpQuote})(MakeUpQuoteContainer)
