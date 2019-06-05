@@ -42,10 +42,8 @@ export const makeUpQuote = (req, res) => dispatch => {
     .post(`${baseUrl}/quotes`)
     .send({ 
       content: req.content,   
-      authorId: req.authorId,
-      userId: req.userId,
-      real: req.real,
-      gameId: req.gameId 
+      real: false,
+
     })
     .then(console.log('request is', req))
     .then(res => {
