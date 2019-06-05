@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import SignupForm from './SignupForm'
 import { connect } from 'react-redux'
 import { signup } from '../actions/users'
+import { Redirect } from 'react-router'
 
 class SignupFormContainer extends PureComponent {
 
@@ -15,10 +16,14 @@ class SignupFormContainer extends PureComponent {
 
 	onSubmit = (event) => {
 		event.preventDefault()
-		this.props.signup(this.state.email, this.state.password)
+		this.props.signupAction(this.state.email, this.state.password)
 	}
 
 	render() {
+		console.log('this.props', this.props)
+		if (this.props.signup && this.props.signup.success === true) return (
+			<Redirect to="/logins" />
+		)
 		console.log('WHAT?', this.state)
 		return (
 			<SignupForm
@@ -30,4 +35,11 @@ class SignupFormContainer extends PureComponent {
 }
 
 
-export default connect(null, { signup })(SignupFormContainer)
+const mapStateToProps = (state) => {
+	console.log(state)
+	return {
+		signup: state.signup
+	};
+};
+
+export default connect(mapStateToProps, { signupAction: signup })(SignupFormContainer)
