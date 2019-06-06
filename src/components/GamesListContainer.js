@@ -12,11 +12,9 @@ class GamesListContainer extends React.Component {
 
 
   render() {
-
-    console.log(this.props)
     return (
       <div>
-        <GamesList games={this.props.games} />
+        <GamesList games={this.props.games} createGame={this.props.createGame} />
       </div >
     )
   }

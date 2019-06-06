@@ -1,7 +1,13 @@
 import request from "superagent";
 const baseUrl = "http://localhost:4000";
 
+
 export const QUOTES_FETCHED = "QUOTES_FETCHED";
+
+const quotesFetched = games => ({
+  type: QUOTES_FETCHED,
+  games
+});
 
 export const loadQuotes = () => (dispatch, getState) => {
   if (getState().quotes) return;
@@ -29,14 +35,10 @@ export const makeUpQuote = (req, res) => dispatch => {
     .catch(err => {
       console.error(err);
     });
-};
+
 
 const makeUpQuoteSuccess = event => ({
   type: MAKE_UP_QUOTE_SUCCESS,
   event
 });
 
-const quotesFetched = games => ({
-  type: QUOTES_FETCHED,
-  games
-});
