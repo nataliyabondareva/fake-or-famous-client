@@ -4,7 +4,6 @@ import { isExpired } from '../jwt'
 import socketIOClient from 'socket.io-client'
 
 export const USER_SIGNUP_SUCCESS = 'USER_SIGNUP_SUCCESS'
-export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGOUT = 'USER_LOGOUT'
 export const ADD_USER = 'ADD_USER'
 export const UPDATE_USERS = 'UPDATE_USERS'

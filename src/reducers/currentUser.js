@@ -15,6 +15,7 @@ catch (e) {
 export default function (state = initialState, { type, payload }) {
   switch (type) {
     case USER_LOGIN_SUCCESS:
+      console.log('why is this', payload)
       return payload
 
     case USER_LOGOUT:
