@@ -27,18 +27,12 @@ class LoginFormContainer extends React.Component {
   }
 
   render() {
-    console.log('ooooooooo', this.props)
-
-    const shouldRedirect = this.props.logins && this.props.logins.sucess == true
-    console.log('shouldRedirect test:', shouldRedirect)
-
+    const shouldRedirect = this.props.logins && this.props.logins.sucess === true
     if (shouldRedirect) {
-      console.log('redirecting!')
       return (
         <Redirect to="/games" />
       )
     } else {
-      console.log('not redirecting!')
       return <LoginForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
     }
   }

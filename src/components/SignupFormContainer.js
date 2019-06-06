@@ -20,7 +20,6 @@ class SignupFormContainer extends PureComponent {
 	}
 
 	render() {
-		console.log('signup props', this.props)
 		const shouldRedirect = this.props.signup && this.props.signup.success === true
 		if (shouldRedirect) {
 			return (
