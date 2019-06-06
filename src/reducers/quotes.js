@@ -1,4 +1,4 @@
-import { MAKE_UP_QUOTE_SUCCESS, QUOTES_FETCHED } from '../actions/quotes'
+import { QUOTES_FETCHED } from '../actions/quotes'
 
 export default function (state = [], action) {
   switch (action.type) {

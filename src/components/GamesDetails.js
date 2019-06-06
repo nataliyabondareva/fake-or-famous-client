@@ -8,7 +8,7 @@ export default function GameDetails(props) {
       < div key={quote.id} >
         <h1>{quote.content}</h1>
         <p>{quote.author}</p>
-        <img src={quote.picture} alt="image" />
+        <img src={quote.picture} alt="" />
       </div >)
     : 'Loading...'
 
