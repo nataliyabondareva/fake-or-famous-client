@@ -8,6 +8,7 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 export const ADD_USER = 'ADD_USER'
 export const UPDATE_USERS = 'UPDATE_USERS'
 export const UPDATE_USER = 'UPDATE_USER'
+export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS"
 
 const userSignupSuccess = () => ({
   type: USER_SIGNUP_SUCCESS
