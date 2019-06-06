@@ -25,9 +25,6 @@ export const signup = (email, password) => dispatch => {
     .catch(err => { console.error(err) })
 }
 
-
-export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
-
 export const userLoginSuccess = (token) => ({
   type: USER_LOGIN_SUCCESS,
   payload: token
