@@ -55,27 +55,10 @@ export const getUsers = () => (dispatch, getState) => {
     .catch(err => console.log(err))
 }
 
+//relating to the current user reducer
+
 export const USER_LOGOUT = 'USER_LOGOUT'
+
 export const logout = () => ({
   type: USER_LOGOUT
 })
-
-
-
-
-
-// export const USER_SIGNUP_FAILED = 'USER_SIGNUP_FAILED'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
