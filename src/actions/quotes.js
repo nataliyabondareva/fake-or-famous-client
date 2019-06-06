@@ -1,19 +1,7 @@
-
 import request from "superagent";
-
-export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
-
-
-
-export const QUOTES_FETCHED = "QUOTES_FETCHED";
-
-
 const baseUrl = "http://localhost:4000";
 
-const quotesFetched = games => ({
-  type: QUOTES_FETCHED,
-  games
-});
+export const QUOTES_FETCHED = "QUOTES_FETCHED";
 
 export const loadQuotes = () => (dispatch, getState) => {
   if (getState().quotes) return;
@@ -22,12 +10,9 @@ export const loadQuotes = () => (dispatch, getState) => {
       dispatch(quotesFetched(response.body));
     })
     .catch(console.error)
-export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS"
+}
 
-const makeUpQuoteSuccess = event => ({
-  type: MAKE_UP_QUOTE_SUCCESS,
-  event
-});
+export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
 
 export const makeUpQuote = (req, res) => dispatch => {
   console.log("res", req, "req", res);
@@ -45,3 +30,13 @@ export const makeUpQuote = (req, res) => dispatch => {
       console.error(err);
     });
 };
+
+const makeUpQuoteSuccess = event => ({
+  type: MAKE_UP_QUOTE_SUCCESS,
+  event
+});
+
+const quotesFetched = games => ({
+  type: QUOTES_FETCHED,
+  games
+});

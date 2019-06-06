@@ -2,10 +2,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {makeUpQuote} from '../actions/quotes'
 import MakeUpQuoteForm from './MakeUpQuoteForm'
+import socketIOClient from 'socket.io-client'
 
 class MakeUpQuoteContainer extends React.Component {
   state = {
-    content: ''
+    content: '',
+    endpoint: "localhost:4000",
   }
 
   onChange = (event) => {
@@ -16,6 +18,7 @@ class MakeUpQuoteContainer extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault()
+    this.send(event)
     this.setState({
     // content: '',
     // authorId: '',
@@ -26,6 +29,13 @@ class MakeUpQuoteContainer extends React.Component {
     this.props.makeUpQuote(this.state)
     console.log('state is', this.state)
   }
+
+    send = (event) => {
+    const socket = socketIOClient(this.state.endpoint)
+    console.log('works', this.state)
+    socket.emit('quote', this.state.quote)
+  }
+
 
   render() {
     return(
