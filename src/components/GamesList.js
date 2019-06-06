@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function GamesLists(props) {
-  console.log(props)
+  // console.log('game list function', props)
   const { games } = props
   const GamesList = !games
     ? "Loading ... "
@@ -13,5 +13,10 @@ export default function GamesLists(props) {
         </Link>
       </li >)
 
-  return <ul>{GamesList}</ul>
+  const output = <div>
+    <button onClick={props.createGame}>Button</button>
+    <ul>{GamesList}</ul>
+  </div>
+
+  return output
 }

@@ -1,15 +1,9 @@
-
 import request from "superagent";
-
-export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
-
-
-
-export const QUOTES_FETCHED = "QUOTES_FETCHED";
-
-
 const baseUrl = "http://localhost:4000";
 
+// export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
+
+export const QUOTES_FETCHED = "QUOTES_FETCHED";
 const quotesFetched = games => ({
   type: QUOTES_FETCHED,
   games
@@ -22,6 +16,8 @@ export const loadQuotes = () => (dispatch, getState) => {
       dispatch(quotesFetched(response.body));
     })
     .catch(console.error)
+}
+
 export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS"
 
 const makeUpQuoteSuccess = event => ({
@@ -44,4 +40,5 @@ export const makeUpQuote = (req, res) => dispatch => {
     .catch(err => {
       console.error(err);
     });
-};
+}
+

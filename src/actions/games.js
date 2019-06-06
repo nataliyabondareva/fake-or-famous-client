@@ -38,13 +38,13 @@ const addGame = game => ({
 
 export const createGame = () => (dispatch, getState) => {
   const state = getState()
-  const jwt = state.currentUser.jwt
-
+  // const jwt = state.currentUser.jwt
+  console.log('createGametest')
   // if (isExpired(jwt)) return dispatch(logout())
 
   request
     .post(`${baseUrl}/games`)
-    .set('Authorization', `Bearer ${jwt}`)
+    // .set('Authorization', `Bearer ${jwt}`)
     .then(result => dispatch(addGame(result.body)))
     .catch(err => console.error(err))
 }
