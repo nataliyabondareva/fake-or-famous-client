@@ -25,16 +25,23 @@ export const signup = (email, password) => dispatch => {
     .catch(err => { console.error(err) })
 }
 
-export const userLoginSuccess = () => ({
+
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
+
+export const userLoginSuccess = (token) => ({
   type: USER_LOGIN_SUCCESS,
-  payload: login
+  payload: token
 })
 
 export const login = (email, password) => dispatch => {
   request
     .post(`${baseUrl}/users`)
     .send({ email, password })
-    .then(result => dispatch(userLoginSuccess(result.body)))
+    .then(result => {
+      console.log('login result', result)
+      // result.body === {token: ...}
+      return dispatch(userLoginSuccess(result.body.token))
+    })
     .catch(err => { console.log(err) })
 }
 

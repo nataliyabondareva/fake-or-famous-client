@@ -27,6 +27,9 @@ class LoginFormContainer extends React.Component {
   }
 
   render() {
+
+    console.log(this.props)
+
     if (this.props.logins && this.props.logins.success === true) return (
       <Redirect to="/games" />
     )
@@ -36,7 +39,7 @@ class LoginFormContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    logins: state.login
+    logins: state.login,
   };
 };
 
