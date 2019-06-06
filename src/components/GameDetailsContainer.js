@@ -9,7 +9,6 @@ class GameDetailsContainer extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
     return <GameDetails quote={this.props.quotes} />
   }
 }

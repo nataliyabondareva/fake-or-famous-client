@@ -12,8 +12,6 @@ class GamesListContainer extends React.Component {
 
 
   render() {
-
-    console.log('games list container', this.props)
     return (
       <div>
         <GamesList games={this.props.games} createGame={this.props.createGame} />

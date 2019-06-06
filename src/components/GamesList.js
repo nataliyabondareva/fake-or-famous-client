@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function GamesLists(props) {
-  // console.log('game list function', props)
+  console.log('game list function', props)
   const { games } = props
   const GamesList = !games
     ? "Loading ... "
