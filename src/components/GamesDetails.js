@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function GameDetails(props) {
-  console.log('props', props)
 
   const content = props.quotes
     ? props.quotes.map(quote =>

@@ -9,13 +9,16 @@ class GameDetailsContainer extends React.Component {
   }
 
   render() {
-    console.log('this.props', this.props)
-    return <GameDetails quotes={this.props.quotes} />
+
+    return (
+      <div>
+        <GameDetails quotes={this.props.quotes} />
+      </div>
+    )
   }
 }
 
 const mapStateToProps = state => {
-  console.log('state', state)
   return ({
     quotes: state.quotes
   })
