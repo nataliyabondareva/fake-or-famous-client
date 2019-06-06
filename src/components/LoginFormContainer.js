@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import { login } from '../actions/users'
 import { Redirect } from 'react-router-dom'
 import socketIOClient from 'socket.io-client'
+import { baseUrl } from '../constants'
 
 class LoginFormContainer extends React.Component {
-  state = { email: '', password: '', endpoint: "localhost:4000", }
+  state = { email: '', password: '', endpoint: baseUrl, }
 
   send = (event) => {
     const socket = socketIOClient(this.state.endpoint)
     socket.emit('user', this.state.quote)
-    console.log('quote', this.state.quote)
   }
 
   onSubmit = (event) => {
