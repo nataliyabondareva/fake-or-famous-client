@@ -37,9 +37,8 @@ export const login = (email, password) => dispatch => {
     .post(`${baseUrl}/users`)
     .send({ email, password })
     .then(result => {
-      console.log('login result', result)
-      // result.body === {token: ...}
-      return dispatch(userLoginSuccess(result.body.token))
+      // console.log('login result', result.body)
+      return dispatch(userLoginSuccess(result.body.password))
     })
     .catch(err => { console.log(err) })
 }
