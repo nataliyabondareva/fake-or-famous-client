@@ -1,29 +1,25 @@
 import request from "superagent";
 const baseUrl = "http://localhost:4000";
 
-// export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
 
 export const QUOTES_FETCHED = "QUOTES_FETCHED";
-const quotesFetched = games => ({
+
+const quotesFetched = quotes => ({
   type: QUOTES_FETCHED,
-  games
+  quotes
 });
 
 export const loadQuotes = () => (dispatch, getState) => {
-  if (getState().quotes) return;
+
+  // if (getState().quotes) return;
   request(`${baseUrl}/quotes`)
-    .then(response => {
-      dispatch(quotesFetched(response.body));
-    })
-    .catch(console.error)
+    .then(response => 
+      dispatch(quotesFetched(response.body))
+    )
+    .catch(console.log('oh no!'))
 }
 
-export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS"
-
-const makeUpQuoteSuccess = event => ({
-  type: MAKE_UP_QUOTE_SUCCESS,
-  event
-});
+export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
 
 export const makeUpQuote = (req, res) => dispatch => {
   console.log("res", req, "req", res);
@@ -40,5 +36,9 @@ export const makeUpQuote = (req, res) => dispatch => {
     .catch(err => {
       console.error(err);
     });
-}
+  }
 
+const makeUpQuoteSuccess = event => ({
+  type: MAKE_UP_QUOTE_SUCCESS,
+  event
+})
