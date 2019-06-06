@@ -10,12 +10,9 @@ const quotesFetched = quotes => ({
 });
 
 export const loadQuotes = () => (dispatch, getState) => {
-
-  // if (getState().quotes) return;
   request(`${baseUrl}/quotes`)
-    .then(response => 
-      dispatch(quotesFetched(response.body))
-    )
+    .then(response =>
+      dispatch(quotesFetched(response.body)))
     .catch(console.log('oh no!'))
 }
 
@@ -36,9 +33,10 @@ export const makeUpQuote = (req, res) => dispatch => {
     .catch(err => {
       console.error(err);
     });
-  }
+}
 
-const makeUpQuoteSuccess = event => ({
+const makeUpQuoteSuccess = quote => ({
   type: MAKE_UP_QUOTE_SUCCESS,
-  event
+  quote
 })
+

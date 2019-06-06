@@ -39,7 +39,6 @@ const addGame = game => ({
 export const createGame = () => (dispatch, getState) => {
   const state = getState()
   // const jwt = state.currentUser.jwt
-  console.log('createGametest')
   // if (isExpired(jwt)) return dispatch(logout())
 
   request

@@ -9,12 +9,16 @@ class GameDetailsContainer extends React.Component {
   }
 
   render() {
-    return <GameDetails quote={this.props.quotes} />
+    console.log('this.props', this.props)
+    return <GameDetails quotes={this.props.quotes} />
   }
 }
 
-const mapStateToProps = state => ({
-  quote: state.quote
-})
+const mapStateToProps = state => {
+  console.log('state', state)
+  return ({
+    quotes: state.quotes
+  })
+}
 
 export default connect(mapStateToProps, { loadQuotes })(GameDetailsContainer) 
