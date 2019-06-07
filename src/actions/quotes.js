@@ -4,21 +4,27 @@ export const LOAD_REAL_QUOTE = "LOAD_REAL_QUOTE";
 export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
 const baseUrl = "http://localhost:4000";
 
+const author = 'Oscar Wilde'
+
+export const handleChoice = (value) => {
+  if (value === true) {
+    console.log('yay!');
+  } else if (value === false) {
+    console.log('i work too');
+  }}
+
 const chooseCorrectQuote = quotes => {
   return quotes[Math.floor(Math.random() * quotes.length)].authorId;
 };
 
 const returnWrongQuote = quotes => {
   return chooseCorrectQuote.authorId
-
 }
 
 //loads quote based on an author
 export const loadRealQuote = id => (dispatch) => {
-  // const state = getState().event;
-  // if (state && state.id === id) return;
   request(`${baseUrl}/quotes/`)
-    .then(response => response.body.filter(quote => quote.author === 'Oscar Wilde'))
+    .then(response => response.body.filter(quote => quote.author === author))
     .then(result => {
       dispatch(realQuoteFetched(result));
     })
