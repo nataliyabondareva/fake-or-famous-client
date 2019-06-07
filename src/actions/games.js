@@ -3,7 +3,7 @@ import { logout } from './users'
 import { isExpired } from '../jwt'
 
 
-const baseUrl = 'http://localhost:4000'
+const baseUrl = 'https://safe-dawn-25834.herokuapp.com'
 
 
 export const GAMES_FETCHED = 'GAMES_FETCHED'
@@ -42,7 +42,7 @@ export const createGame = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-function updateGame (game) {
+function updateGame(game) {
   return {
     type: UPDATE_GAME,
     payload: game

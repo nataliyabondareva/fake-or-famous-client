@@ -2,13 +2,13 @@ import request from "superagent";
 export const QUOTES_FETCHED = "QUOTES_FETCHED";
 export const LOAD_REAL_QUOTE = "LOAD_REAL_QUOTE";
 export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://safe-dawn-25834.herokuapp.com";
 
 const author = 'Oscar Wilde'
 
 export const handleChoice = (value) => {
   // if (value === true) {
-    request
+  request
     .post(`${baseUrl}/games/1`)
     .send({
       roundsPlayed: +1,
@@ -20,9 +20,9 @@ export const handleChoice = (value) => {
       console.error(err);
     });
 };
-  // } else if (value === false) {
-  //   console.log('i work too');
-  // }}
+// } else if (value === false) {
+//   console.log('i work too');
+// }}
 
 const chooseCorrectQuote = quotes => {
   return quotes[Math.floor(Math.random() * quotes.length)].authorId;

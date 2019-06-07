@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom'
 import socketIOClient from 'socket.io-client'
 
 class LoginFormContainer extends React.Component {
-  state = { email: '', password: '', endpoint: "localhost:4000", }
+  state = { email: '', password: '', endpoint: "https://safe-dawn-25834.herokuapp.com", }
 
   send = (event) => {
     const socket = socketIOClient(this.state.endpoint)
