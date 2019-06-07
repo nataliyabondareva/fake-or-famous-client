@@ -7,6 +7,7 @@ import SignupFormContainer from './components/SignupFormContainer';
 import MakeUpQuoteContainer from './components/MakeUpQuoteContainer'
 import GamesListContainer from './components/GamesListContainer'
 import GameDetailsContainer from './components/GameDetailsContainer'
+import GamePlayContainer from './components/GamePlayContainer';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/games" exact component={GamesListContainer} />
           <Route path="/games/:id" exact component={GameDetailsContainer} />
           <Route path="/quotes" exact component={MakeUpQuoteContainer} />
+          <Route path="/gameplay" exact component={GamePlayContainer} />
         </div>
       </Provider>
     );

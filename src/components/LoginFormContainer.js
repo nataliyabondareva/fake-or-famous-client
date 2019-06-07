@@ -27,16 +27,20 @@ class LoginFormContainer extends React.Component {
   }
 
   render() {
-    if (this.props.logins && this.props.logins.success === true) return (
-      <Redirect to="/games" />
-    )
-    return <LoginForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
+    const shouldRedirect = this.props.logins && this.props.logins.sucess === true
+    if (shouldRedirect) {
+      return (
+        <Redirect to="/games" />
+      )
+    } else {
+      return <LoginForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
+    }
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    logins: state.login
+    logins: state.login,
   };
 };
 

@@ -20,17 +20,19 @@ class SignupFormContainer extends PureComponent {
 	}
 
 	render() {
-		// console.log('this.props', this.props)
-		if (this.props.signup && this.props.signup.success === true) return (
-			<Redirect to="/logins" />
-		)
-		console.log('WHAT?', this.state)
-		return (
-			<SignupForm
-				onSubmit={this.onSubmit}
-				onChange={this.onChange}
-				values={this.state} />
-		)
+		const shouldRedirect = this.props.signup && this.props.signup.success === true
+		if (shouldRedirect) {
+			return (
+				<Redirect to="/logins" />
+			)
+		} else {
+			return (
+				<SignupForm
+					onSubmit={this.onSubmit}
+					onChange={this.onChange}
+					values={this.state} />
+			)
+		}
 	}
 }
 
