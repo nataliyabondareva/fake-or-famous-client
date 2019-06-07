@@ -23,7 +23,7 @@ class MakeUpQuoteContainer extends React.Component {
     // real: '',
     // gameId: ''
     })
-    this.props.makeUpQuote(this.props.game.id, this.state)
+    this.props.makeUpQuote(this.props.game.id, this.state, this.props.user)
   }
 
 
@@ -39,7 +39,8 @@ class MakeUpQuoteContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    content: state.content
+    content: state.content,
+    user: state.currentUser && state.currentUser.token
   }
 }
 

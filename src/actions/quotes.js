@@ -59,19 +59,21 @@ const quotesFetched = quotes => ({
 });
 
 export const makeUpQuote = (gameId, quote, currentUser) => dispatch => {
+  const data = { gameId, quote }
+  console.log('data test:', data)
   request
     .post(`${baseUrl}/quotes`)
-    .then(console.log('test for quptes', { gameId, quote, currentUser }))
-    // .send({ gameId, quote, currentUser })
+    .set('Authorization', `Bearer ${currentUser}`)
+    .send(data)
     .then(res => {
-      dispatch(makeUpQuoteSuccess(res));
+      dispatch(makeUpQuoteSuccess(res.body));
     })
     .catch(err => {
       console.error(err);
     });
 };
 
-const makeUpQuoteSuccess = (game, currentUser) => ({
+const makeUpQuoteSuccess = (game) => ({
   type: "UPDATE_GAME",
-  payload: game, currentUser
+  payload: game
 });

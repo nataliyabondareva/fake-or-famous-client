@@ -9,8 +9,13 @@ export default function GameDetails(props) {
   //     <img src={quote.picture} alt="" />
   //   </div >)
   
-  const users = props.game && props.game.users.map(user => <p>{user.email}</p>)
-  const quotes = props.game && props.game.quotes.map(quote => <p>{quote.content}</p>)
+  const users = props.game && props.game.users.map(user => <p key={user.id}>{user.email}</p>)
+  const quotes = props.game && props
+    .game
+    .quotes
+    .map(quote => <p key={quote.id}>
+      {quote.content}
+    </p>)
 
   return (
     <div>
@@ -18,6 +23,7 @@ export default function GameDetails(props) {
       <h3>Users</h3>
       {users}
 
+      {props.game && props.game.prompt}
       <MakeUpQuoteContainer game={props.game} />
       <h3>Quotes</h3>
       {quotes}
