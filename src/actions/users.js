@@ -31,11 +31,12 @@ export const userLoginSuccess = (user) => ({
 })
 
 export const login = (email, password) => dispatch => {
+  console.log('login test')
   request
-    .post(`${baseUrl}/users`)
+    .post(`${baseUrl}/logins`)
     .send({ email, password })
     .then(result => {
-      // console.log('login result', result.body)
+      console.log('login result', result.body)
       return dispatch(userLoginSuccess(result.body))
     })
     .catch(err => { console.log(err) })

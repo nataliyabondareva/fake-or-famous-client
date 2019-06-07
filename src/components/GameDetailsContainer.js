@@ -1,18 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import GameDetails from './GamesDetails'
-import { loadQuotes } from '../actions/quotes'
+import { loadGame, joinGame } from '../actions/games'
 
 class GameDetailsContainer extends React.Component {
   componentDidMount() {
-    this.props.loadQuotes(Number(this.props.match.params.id))
+
+    this.props.loadGame(Number(this.props.match.params.id))
+  }
+
+  joinGame = () => {
+    console.log('joinGame method test!')
+    this.props.joinGame(this.props.game.id)
   }
 
   render() {
 
     return (
       <div>
-        <GameDetails quotes={this.props.quotes} />
+        <GameDetails
+          game={this.props.game}
+          joinGame={this.joinGame}
+        />
       </div>
     )
   }
@@ -20,8 +29,8 @@ class GameDetailsContainer extends React.Component {
 
 const mapStateToProps = state => {
   return ({
-    quotes: state.quotes
+    game: state.game
   })
 }
 
-export default connect(mapStateToProps, { loadQuotes })(GameDetailsContainer) 
+export default connect(mapStateToProps, { loadGame, joinGame })(GameDetailsContainer) 

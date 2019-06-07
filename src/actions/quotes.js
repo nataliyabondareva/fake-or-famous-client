@@ -7,10 +7,22 @@ const baseUrl = "http://localhost:4000";
 const author = 'Oscar Wilde'
 
 export const handleChoice = (value) => {
-  if (value === true) {
-  } else if (value === false) {
-    console.log('i work too');
-  }}
+  // if (value === true) {
+    request
+    .post(`${baseUrl}/games/1`)
+    .send({
+      roundsPlayed: +1,
+    })
+    // .then(res => {
+    //   dispatch(makeUpQuoteSuccess(res));
+    // })
+    .catch(err => {
+      console.error(err);
+    });
+};
+  // } else if (value === false) {
+  //   console.log('i work too');
+  // }}
 
 const chooseCorrectQuote = quotes => {
   return quotes[Math.floor(Math.random() * quotes.length)].authorId;
@@ -46,13 +58,10 @@ const quotesFetched = quotes => ({
   quotes
 });
 
-export const makeUpQuote = (req, res) => dispatch => {
+export const makeUpQuote = (gameId, quote) => dispatch => {
   request
     .post(`${baseUrl}/quotes`)
-    .send({
-      content: req.content,
-      real: false
-    })
+    .send({ gameId, quote })
     .then(res => {
       dispatch(makeUpQuoteSuccess(res));
     })

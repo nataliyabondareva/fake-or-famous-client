@@ -23,7 +23,7 @@ class MakeUpQuoteContainer extends React.Component {
     // real: '',
     // gameId: ''
     })
-    this.props.makeUpQuote(this.state)
+    this.props.makeUpQuote(this.props.game.id, this.state)
   }
 
 
@@ -33,7 +33,7 @@ class MakeUpQuoteContainer extends React.Component {
       onSubmit={this.onSubmit}
       onChange={this.onChange}
       values={this.state}
-      />)
+    />)
   }
 }
 
