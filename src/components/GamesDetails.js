@@ -8,8 +8,9 @@ export default function GameDetails(props) {
   //     <p>{quote.author}</p>
   //     <img src={quote.picture} alt="" />
   //   </div >)
-
+  
   const users = props.game && props.game.users.map(user => <p>{user.email}</p>)
+  const quotes = props.game && props.game.quotes.map(quote => <p>{quote.content}</p>)
 
   return (
     <div>
@@ -19,6 +20,7 @@ export default function GameDetails(props) {
 
       <MakeUpQuoteContainer game={props.game} />
       <h3>Quotes</h3>
+      {quotes}
     </div>
   );
 }
