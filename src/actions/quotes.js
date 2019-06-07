@@ -8,7 +8,6 @@ const author = 'Oscar Wilde'
 
 export const handleChoice = (value) => {
   if (value === true) {
-    console.log('yay!');
   } else if (value === false) {
     console.log('i work too');
   }}

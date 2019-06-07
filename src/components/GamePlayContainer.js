@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { loadRealQuote, handleChoice } from '../actions/quotes'
 
 class GamePlayContainer extends React.Component {
-  state = {quotes: ''}
+  // state = {quotes: '', roundsPlayed: 1}
 
   componentDidMount() {
     this.props.loadRealQuote(this.props.match.params.id)
@@ -28,7 +28,7 @@ const mapStateToProps = state => {
     state: state,
     roundsPlayed: state.roundsPlayed,
     quotes: state.quotes,
-    score: state.score,
+    score: state.score
   };
 };
 
