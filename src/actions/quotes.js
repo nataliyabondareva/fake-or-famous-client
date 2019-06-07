@@ -5,15 +5,22 @@ export const MAKE_UP_QUOTE_SUCCESS = "MAKE_UP_QUOTE_SUCCESS";
 const baseUrl = "http://localhost:4000";
 
 const chooseCorrectQuote = quotes => {
-  return quotes[Math.floor(Math.random() * quotes.length)];
+  return quotes[Math.floor(Math.random() * quotes.length)].authorId;
 };
 
-export const loadRealQuote = id => (dispatch, getState) => {
+const returnWrongQuote = quotes => {
+  return chooseCorrectQuote.authorId
+
+}
+
+//loads quote based on an author
+export const loadRealQuote = id => (dispatch) => {
   // const state = getState().event;
   // if (state && state.id === id) return;
   request(`${baseUrl}/quotes/`)
-    .then(response => {
-      dispatch(realQuoteFetched(response.body));
+    .then(response => response.body.filter(quote => quote.author === 'Oscar Wilde'))
+    .then(result => {
+      dispatch(realQuoteFetched(result));
     })
     .catch(console.error);
 };
