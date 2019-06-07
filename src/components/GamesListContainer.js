@@ -6,7 +6,6 @@ import GamesList from './GamesList'
 
 class GamesListContainer extends React.Component {
   componentDidMount() {
-    console.log('game list cont props', this.props)
     this.props.loadGames()
     // this.props.getUsers()
   }
